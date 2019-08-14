@@ -82,14 +82,15 @@ add_revision(qt
 # Default to build from a known ParaView revision
 option(USE_PARAVIEW_MASTER "Use ParaView master instead of known ref" OFF)
 if(USE_PARAVIEW_MASTER)
-  set(_paraview_revision "master")
+  set(_paraview_revision "volume_2d_transfer_Y")
 else()
   # Test the revision locally before proposing a move
   set(_paraview_revision "10938cd09bfd2fae80955c4886a4e1cdac782b50")
 endif()
 # Locally patched ParaView repo, or main repo
 #set(_paraview_repo "https://gitlab.kitware.com/paraview/paraview.git")
-set(_paraview_repo "https://github.com/openchemistry/paraview.git")
+# set(_paraview_repo "https://github.com/openchemistry/paraview.git")
+set(_paraview_repo "https://gitlab.kitware.com/sankhesh/paraview.git")
 add_revision(paraview
   GIT_REPOSITORY "${_paraview_repo}"
   GIT_TAG "${_paraview_revision}")
@@ -97,8 +98,8 @@ add_revision(paraview
 if (tomviz_FROM_GIT)
   # Download tomviz from GIT
   add_customizable_revision(tomviz
-    GIT_REPOSITORY https://github.com/openchemistry/tomviz.git
-    GIT_TAG "1.6.0")
+    GIT_REPOSITORY https://github.com/sankhesh/tomviz.git
+    GIT_TAG "volume_2d_transfer_Y")
 else()
   if (tomviz_FROM_SOURCE_DIR)
     add_customizable_revision(tomviz
